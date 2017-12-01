@@ -18,21 +18,11 @@ class AuthorController extends Controller {
         // Display authors list
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        // Return create view
-    }
+    //    public function create() {
+//        // Return create view
+//    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request) {
 
         $result['status'] = 0;
@@ -47,7 +37,7 @@ class AuthorController extends Controller {
                     ->render();
         } else {
             $author = new Author(Input::all());
-          
+
             $author->save();
 
             $result['status'] = 1;
@@ -57,35 +47,38 @@ class AuthorController extends Controller {
         print json_encode($result);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Author $author) {
-        // Display db record data view
-    }
+//    public function show(Author $author) {
+//        // Display db record data view
+//    }
+//    public function edit(Author $author) {
+//        // return edit view
+//    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Author $author) {
-        // return edit view
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Author $author) {
-        // update db record based on user input
+    public function update($id) {
+        $author = Author::findOrFail($id);
+
+        $result['status'] = 0;
+        $validator = Validator::make(Input::all(), Author::$rules);
+
+        if ($validator->fails()) {
+            Input::flashExcept('password');
+            $result['view'] = View('author.partial.edit-dialog')
+                    ->withErrors($validator)
+                    ->with('author', $author)
+                    ->withInput(Input::except('password'))
+                    ->render();
+        } else {
+            $author->name = Input::get('name');
+            $author->notes = Input::get('notes');
+            $orderItem->save();
+
+            $result['status'] = 1;
+            $result['orderItemId'] = $orderItem->id;
+            $result['message'] = 'update.author.success';
+        }
+
+        print json_encode($result);
     }
 
     /**
@@ -98,9 +91,15 @@ class AuthorController extends Controller {
         // Delete db record
     }
 
-    public function getModal($modal, Request $request) {
+    public function getModal($modal, $id = null, Request $request) {
         $request->session()->forget('message');
-        print json_encode(View('author.partial.' . $modal)->render());
+        //  $viewData = $this->_buildViewData();
+        if (isset($id)) {
+            $author = Author::findOrFail($id);
+            print json_encode(View('author.partial.' . $modal)->with('author', $author)->render());
+        } else {
+            print json_encode(View('author.partial.' . $modal)->render());
+        }
     }
 
 }

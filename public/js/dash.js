@@ -10,6 +10,8 @@ $(document).ready(function () {
     $(".btn-new-book").click(function () {
         getModal("book", "create-dialog", initBookDialog);
     });
+    $('[data-toggle="popover"]').popover();
+
 });
 
 function submitModalForm(formId, successCallBack, errorCallBack) {
