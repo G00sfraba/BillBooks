@@ -18,11 +18,6 @@ class AuthorController extends Controller {
         // Display authors list
     }
 
-    //    public function create() {
-//        // Return create view
-//    }
-
-
     public function store(Request $request) {
 
         $result['status'] = 0;
@@ -50,10 +45,6 @@ class AuthorController extends Controller {
 //    public function show(Author $author) {
 //        // Display db record data view
 //    }
-//    public function edit(Author $author) {
-//        // return edit view
-//    }
-
 
     public function update($id) {
         $author = Author::findOrFail($id);
@@ -71,29 +62,29 @@ class AuthorController extends Controller {
         } else {
             $author->name = Input::get('name');
             $author->notes = Input::get('notes');
-            $orderItem->save();
+            $author->save();
 
             $result['status'] = 1;
-            $result['orderItemId'] = $orderItem->id;
+            $result['author'] = $author->id;
             $result['message'] = 'update.author.success';
         }
 
         print json_encode($result);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Author  $author
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Author $author) {
-        // Delete db record
+    public function destroy($id) {
+        Author::destroy($id);
+
+        $result['status'] = 1;
+        $result['orderItemId'] = $id;
+        $result['message'] = 'delete.author.success';
+
+        print json_encode($result);
     }
 
     public function getModal($modal, $id = null, Request $request) {
         $request->session()->forget('message');
-        //  $viewData = $this->_buildViewData();
+        
         if (isset($id)) {
             $author = Author::findOrFail($id);
             print json_encode(View('author.partial.' . $modal)->with('author', $author)->render());

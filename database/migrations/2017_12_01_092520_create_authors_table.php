@@ -16,7 +16,7 @@ class CreateAuthorsTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->string('notes')->nullable();
+            $table->longText('notes')->nullable();
             $table->timestamps();
         });
 

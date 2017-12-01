@@ -17,7 +17,7 @@
                     </div>
                     @endif
 
-                    @if(!empty($authors))
+                    @if(!$authors->isEmpty())
                         @foreach ($authors as $key => $author)                            
                             <div class="col-md-4 col-xs-12 col-sm-4">
                                 <div class="row">
@@ -26,9 +26,9 @@
                             </div>       
                         @endforeach  
                     @else
-                        <div class="col-md-8 col-xs-12 col-sm-8">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
-                                Please add Authors to this catalogue!
+                                Please add Authors to this list!
                             </div>
                         </div>
                     @endif

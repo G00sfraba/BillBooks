@@ -1,7 +1,13 @@
 <div class="col-md-12 text-center widget">
     <h3>{{$author->name}}</h3>
-    <div>{{$author->notes}}</div>
-    Num of books:  
+    
+    <div class="notes" 
+         title="Notes" 
+         data-toggle="popover" 
+         data-placement="top" 
+         data-trigger="hover" 
+         data-content="{{$author->notes}}">{{$author->notes}}</div>    
+
     <div class="widget-btns">
         <a class="btn-author-books" author='{{$author->id}}' data-toggle="modal" data-target="#primaryModal">
             <i class="fa fa-book" 

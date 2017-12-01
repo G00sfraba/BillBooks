@@ -28,3 +28,10 @@
 .widget-btns i{
     cursor: pointer;
 }
+.notes{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 30px;
+    line-height: 30px;
+}

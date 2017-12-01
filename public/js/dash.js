@@ -10,6 +10,12 @@ $(document).ready(function () {
     $(".btn-new-book").click(function () {
         getModal("book", "create-dialog", initBookDialog);
     });
+    $(".btn-edit-author").click(function () {
+        getModal("author", "edit-dialog/" + $(this).attr('author'), initAuthorDialog);
+    });
+    $(".btn-delete-author").click(function () {
+        getModal("author", "delete-dialog/" + $(this).attr('author'), initAuthorDialog);
+    });
     $('[data-toggle="popover"]').popover();
 
 });
@@ -127,7 +133,7 @@ function deleteRecord(module, id, callBack) {
 function initAuthorDialog(resposne) {
     setTimeout(function () {
         $('#btn-submit').click(function () {
-            submitModalForm('add-author-modal-form', submitAuthorSuccess, submitModalError);
+            submitModalForm('author-modal-form', submitAuthorSuccess, submitModalError);
         });
     }, 500);
 }

@@ -14,7 +14,7 @@ class Author extends Model {
 
        
     public static $rules = array(
-        'name' => 'required|unique:authors',
+        'name' => 'required',
     );
     
     private $errors;
@@ -31,7 +31,7 @@ class Author extends Model {
     }
     
     public static function getAuthors(){
-        return  Author::select('name', 'notes')
+        return  Author::select('name', 'notes','id')
                 ->where('user_id', Auth::user()->id)
                 ->get();
     }

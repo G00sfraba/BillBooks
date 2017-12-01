@@ -9,7 +9,7 @@
         @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
         @endif
-        <form id="add-author-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/author/update-author">
+        <form id="author-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/author/update-author/{{$author->id}}">
             {{ csrf_field() }}
 
             @include('author.partial.fields')
