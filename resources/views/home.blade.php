@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a class="btn btn-default btn-new-author" data-toggle="modal" data-target="#primaryModal">Add Author</a>
-                    <a class="btn btn-default">Add Book</a>
+                    <a class="btn btn-default btn-new-book" data-toggle="modal" data-target="#primaryModal">Add Book</a>
                 </div>
 
                 <div class="panel-body">
@@ -17,7 +17,21 @@
                     </div>
                     @endif
 
-                    You are logged in!
+                    @if(!empty($authors))
+                        @foreach ($authors as $key => $author)                            
+                            <div class="col-md-4 col-xs-12 col-sm-4">
+                                <div class="row">
+                                    @include('author.partial.widget', $author)
+                                </div>
+                            </div>       
+                        @endforeach  
+                    @else
+                        <div class="col-md-8 col-xs-12 col-sm-8">
+                            <div class="row">
+                                Please add Authors to this catalogue!
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

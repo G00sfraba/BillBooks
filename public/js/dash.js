@@ -7,6 +7,9 @@ $(document).ready(function () {
     $(".btn-new-author").click(function () {
         getModal("author", "create-dialog", initAuthorDialog);
     });
+    $(".btn-new-book").click(function () {
+        getModal("book", "create-dialog", initBookDialog);
+    });
 });
 
 function submitModalForm(formId, successCallBack, errorCallBack) {
@@ -121,7 +124,6 @@ function deleteRecord(module, id, callBack) {
 
 function initAuthorDialog(resposne) {
     setTimeout(function () {
-        console.log(resposne);
         $('#btn-submit').click(function () {
             submitModalForm('add-author-modal-form', submitAuthorSuccess, submitModalError);
         });

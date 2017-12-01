@@ -26,7 +26,14 @@ class Author extends Model {
     }
     
     public function hasAuthors(){        
-        return  Author::where('user_id',Auth::user()->id )->count();
+        return  Author::where('user_id',Auth::user()->id )
+                ->count();
+    }
+    
+    public static function getAuthors(){
+        return  Author::select('name', 'notes')
+                ->where('user_id', Auth::user()->id)
+                ->get();
     }
 
 }
