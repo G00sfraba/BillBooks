@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class AuthorController extends Controller {
 
@@ -32,7 +34,27 @@ class AuthorController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // db store operation
+
+        $result['status'] = 0;
+        $validator = Validator::make(Input::all(), Author::$rules);
+
+        if ($validator->fails()) {
+
+            Input::flashExcept('password');
+            $result['view'] = View('author.partial.create-dialog')
+                    ->withErrors($validator)
+                    ->withInput(Input::except('password'))
+                    ->render();
+        } else {
+            $author = new Author(Input::all());
+          
+            $author->save();
+
+            $result['status'] = 1;
+            $result['authorId'] = $author->id;
+            $result['message'] = 'add.author.success';
+        }
+        print json_encode($result);
     }
 
     /**

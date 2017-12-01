@@ -5,11 +5,11 @@ var alertTpe = null;
 
 $(document).ready(function () {
     $(".btn-new-author").click(function () {
-        getModal("author", "create-dialog", initAuthorDialog());
+        getModal("author", "create-dialog", initAuthorDialog);
     });
 });
 
-function submitModalForm(formId, successCallback, errorCallback) {
+function submitModalForm(formId, successCallBack, errorCallBack) {
     var form = $('#' + formId);
     form.on('submit', function (e) {
         e.preventDefault();
@@ -20,14 +20,14 @@ function submitModalForm(formId, successCallback, errorCallback) {
                 .done(function (response) {
                     var parsedResponse = JSON.parse(response);
                     submitModalSuccess(parsedResponse);
-                    if (typeof successCallback !== 'undefined') {
-                        if (jQuery.isFunction(successCallback)) {
-                            successCallback(parsedResponse);
+                    if (typeof successCallBack !== 'undefined') {
+                        if (jQuery.isFunction(successCallBack)) {
+                            successCallBack(parsedResponse);
                         }
                     }
                 })
                 .fail(function (xhr, status, error) {
-                    errorCallback(xhr, status, error);
+                    errorCallBack(xhr, status, error);
 
                 });
     });
@@ -46,7 +46,6 @@ function submitModalSuccess(response) {
 
 function submitModalError(xhr, status, error) {
     setModalContent(xhr.responseText);
-    $('#add-order-modal').html(xhr.responseText);
 }
 
 function setModalContent(content) {
@@ -120,18 +119,19 @@ function deleteRecord(module, id, callBack) {
             });
 }
 
-
-
-function initAuthorDialog() {
+function initAuthorDialog(resposne) {
     setTimeout(function () {
+        console.log(resposne);
         $('#btn-submit').click(function () {
-            var execute = null;
-            if (typeof submitAuthorSuccess !== 'undefined') {
-                execute = submitAuthorSuccess;
-            } else {
-                execute = submitModalSuccess;
-            }
-            submitModalForm('add-author-modal-form', execute, submitModalError);
+            submitModalForm('add-author-modal-form', submitAuthorSuccess, submitModalError);
         });
-    }, 1000);
+    }, 500);
+}
+
+function submitAuthorSuccess(response) {
+    if (response.status == 0) {
+        initAuthorDialog();
+    } else {
+        location.reload();
+    }
 }
