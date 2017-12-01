@@ -8,7 +8,7 @@ class Author extends Model {
 
     protected $table = 'authors';
     protected $fillable = [
-        'name', 'notes'
+        'name', 'notes', 'user_id'
     ];
     
     public static $_rules = array(
