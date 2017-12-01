@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        // Display authors list
     }
 
     /**
@@ -24,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        // Return create view
     }
 
     /**
@@ -35,7 +35,7 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // db store operation
     }
 
     /**
@@ -46,7 +46,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        // Display db record data view
     }
 
     /**
@@ -57,7 +57,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        // return edit view
     }
 
     /**
@@ -69,7 +69,7 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        //
+        // update db record based on user input
     }
 
     /**
@@ -80,6 +80,6 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        // Delete db record
     }
 }
