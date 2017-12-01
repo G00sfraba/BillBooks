@@ -9,14 +9,14 @@
         @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
         @endif
-        <form id="addClientModalForm" class="form-horizontal" role="form" method="POST" action="/ajax/author/add-author">
+        <form id="add-author-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/author/add-author">
             {{ csrf_field() }}
 
             @include('author.partial.fields')
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                <button id="btn-submit-author-modal" type="button" class="btn btn-success">Save</button>
+                <button id="btn-submit" type="button" class="btn btn-success">Save</button>
             </div>
         </form>
     </div>

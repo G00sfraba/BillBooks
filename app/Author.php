@@ -10,11 +10,11 @@ class Author extends Model {
     protected $fillable = [
         'name', 'notes', 'user_id'
     ];
-    
+
     public static $_rules = array(
         'name' => 'required|unique:authors',
     );
-    
+
     private $errors;
 
 }
