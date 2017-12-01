@@ -84,6 +84,6 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="/js/dash.js"></script>
+        <script src="js/dash.js"></script>
     </body>
 </html>

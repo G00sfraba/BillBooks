@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use App\Author;
 use Illuminate\Http\Request;
 
-class AuthorController extends Controller
-{
+class AuthorController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         // Display authors list
     }
 
@@ -22,8 +21,7 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         // Return create view
     }
 
@@ -33,8 +31,7 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         // db store operation
     }
 
@@ -44,8 +41,7 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function show(Author $author)
-    {
+    public function show(Author $author) {
         // Display db record data view
     }
 
@@ -55,8 +51,7 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit(Author $author)
-    {
+    public function edit(Author $author) {
         // return edit view
     }
 
@@ -67,8 +62,7 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
-    {
+    public function update(Request $request, Author $author) {
         // update db record based on user input
     }
 
@@ -78,8 +72,13 @@ class AuthorController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Author $author)
-    {
+    public function destroy(Author $author) {
         // Delete db record
     }
+
+    public function getModal($modal, Request $request) {
+        $request->session()->forget('message');
+        print json_encode(View('author.partial.' . $modal)->render());
+    }
+
 }

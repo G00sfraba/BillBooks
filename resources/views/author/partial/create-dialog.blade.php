@@ -4,7 +4,7 @@
     <h1>Add New Author</h1>
 </div>
 <div class="modal-body">
-    <div class="container">
+    <div class="">
 
         @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>

@@ -13,15 +13,15 @@
 </div>
 
 
-<div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-    <label for="address" class="col-md-4 col-xs-12 col-sm-4 control-label">Адрес</label>
+<div class="form-group{{ $errors->has('notes') ? ' has-error' : '' }}">
+    <label for="notes" class="col-md-4 col-xs-12 col-sm-4 control-label">Notes</label>
 
     <div class="col-md-8 col-sm-8 col-xs-12">
-        <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required >
+        <input id="notes" type="text" class="form-control" name="notes" value="{{ old('notes') }}" required >
 
-        @if ($errors->has('address'))
+        @if ($errors->has('notes'))
         <span class="help-block">
-            <strong>{{ $errors->first('address') }}</strong>
+            <strong>{{ $errors->first('notes') }}</strong>
         </span>
         @endif
     </div>

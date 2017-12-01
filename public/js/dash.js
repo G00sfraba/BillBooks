@@ -4,8 +4,8 @@ var alertIsActive = false;
 var alertTpe = null;
 
 $(document).ready(function () {
-    $(".btn-new-client").click(function () {
-        getModal("client", "create-dialog", initClientDialog());
+    $(".btn-new-author").click(function () {
+        getModal("author", "create-dialog", initAuthorDialog());
     });
 });
 
