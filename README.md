@@ -42,7 +42,7 @@ php artisan migrate
 That's it - you can enjoy the project.
 
 
-## If you have any problems with the links on your local host. You can setup a virtual host in your apache server. here is mine 
+## If you have any problems with the links on your local host. You can setup a virtual host in your apache server. Here is mine 
 ```
 ##<VirtualHost *:80>
     ##ServerAdmin webmaster@dummy-host2.example.com
