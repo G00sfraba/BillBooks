@@ -5,7 +5,7 @@
                aria-hidden="true" 
                title="Books" 
                data-toggle="popover" 
-               data-placement="top" 
+               data-placement="bottom" 
                data-trigger="hover" 
                data-content="Open your books collection from {{$author->name}}"> {{App\Book::authorBooksCount($author->id)}}</i>
         </a>
@@ -13,7 +13,7 @@
             <i class="fa fa-pencil"  
                aria-hidden="true" title="Edit" 
                data-toggle="popover" 
-               data-placement="top" 
+               data-placement="bottom" 
                data-trigger="hover" 
                data-content="Edit the infromation about {{$author->name}}"></i>
         </a>
@@ -22,7 +22,7 @@
                aria-hidden="true" 
                title="Delete" 
                data-toggle="popover" 
-               data-placement="top" 
+               data-placement="bottom" 
                data-trigger="hover" 
                data-content="Delete this author and all of the books associated with {{$author->name}}"></i>
         </a>

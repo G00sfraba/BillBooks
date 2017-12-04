@@ -4,7 +4,7 @@
             <i class="fa fa-pencil"  
                aria-hidden="true" title="Edit" 
                data-toggle="popover" 
-               data-placement="top" 
+               data-placement="bottom" 
                data-trigger="hover" 
                data-content="Edit the infromation about {{$book->title}}"></i>
         </a>
@@ -13,7 +13,7 @@
                aria-hidden="true" 
                title="Delete" 
                data-toggle="popover" 
-               data-placement="top" 
+               data-placement="bottom" 
                data-trigger="hover" 
                data-content="Delete this book {{$book->title}}"></i>
         </a>
@@ -22,7 +22,7 @@
                aria-hidden="true" 
                title="Year" 
                data-toggle="popover" 
-               data-placement="top" 
+               data-placement="bottom" 
                data-trigger="hover" 
                data-content="Year of purchase {{$book->purchased}}"> {{$book->purchased}}</i>
         </a>

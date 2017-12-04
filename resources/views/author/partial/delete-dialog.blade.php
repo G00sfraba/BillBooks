@@ -8,9 +8,9 @@
         <form id="author-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/author/delete-author/{{$author->id}}"> 
             {{ csrf_field() }}
             <h2>You are going to delete the following record:</h2>
-            @include('author.partial.widget',$author)
+            Author: {{$author->name}}
             <div>
-            This will also delete all of this author books.
+                This will also delete all of this author books.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-left"  data-dismiss="modal">No, Cancel</button>

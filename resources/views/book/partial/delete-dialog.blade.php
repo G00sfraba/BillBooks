@@ -8,10 +8,7 @@
         <form id="book-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/book/delete-book/{{$book->id}}"> 
             {{ csrf_field() }}
             <h2>You are going to delete the following record:</h2>
-            @include('book.partial.widget',$book)
-            <div>
-            
-            </div>
+            Book: {{$book->title}}          
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-left"  data-dismiss="modal">No, Cancel</button>
                 <button id="btn-submit" type="button" class="btn btn-success">Yes, Delete</button>
