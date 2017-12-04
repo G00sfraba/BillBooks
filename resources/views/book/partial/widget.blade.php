@@ -1,8 +1,8 @@
 <div class="col-md-12 text-center widget">
     <h3>{{$book->title}}</h3>
     <div>{{$book->author_id}}</div>
-    <div>{{$book->purchased}}</div>
-    <div>{{$book->cover}}</div>
+    <div>purchased: {{$book->purchased}}</div>
+    <img src="{{URL::asset('/covers/'.$book->cover)}}" class="book-cover">
     <div class="notes" 
          title="Notes" 
          data-toggle="popover" 

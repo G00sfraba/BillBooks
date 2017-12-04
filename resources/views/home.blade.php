@@ -29,7 +29,7 @@
                     @else
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
-                                Please add Authors to this list!
+                                Nope, you don't have any authors yet.
                             </div>
                         </div>
                     @endif      
@@ -47,7 +47,7 @@
                     @else
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
-                                Please add Books to this list!
+                                 Nope, you don't have any books yet.
                             </div>
                         </div>
                     @endif      
