@@ -80,10 +80,14 @@
             <div class="content">
                 <div class="title m-b-md">
                     <h4>Bill's Books</h4>
-                    A Laravel based application
+                    <div class="links">
+                        <a href="https://github.com/G00sfraba/BillBooks">find it at GitHub</a>
+                    </div>
+                    <h5>A Laravel based application</h5>
                 </div>
 
                 <div class="links">
+                    Laravel Docs:
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
