@@ -16,6 +16,12 @@ $(document).ready(function () {
     $(".btn-delete-author").click(function () {
         getModal("author", "delete-dialog/" + $(this).attr('author'), initAuthorDialog);
     });
+    $(".btn-edit-book").click(function () {
+        getModal("book", "edit-dialog/" + $(this).attr('book'), initAuthorDialog);
+    });
+    $(".btn-delete-book").click(function () {
+        getModal("book", "delete-dialog/" + $(this).attr('book'), initAuthorDialog);
+    });
     $('[data-toggle="popover"]').popover();
 
 });

@@ -32,6 +32,22 @@
                             </div>
                         </div>
                     @endif
+                    
+                    @if(!$books->isEmpty())
+                        @foreach ($books as $key => $book)                            
+                            <div class="col-md-4 col-xs-12 col-sm-6">
+                                <div class="row">
+                                    @include('book.partial.widget', $book)
+                                </div>
+                            </div>       
+                        @endforeach  
+                    @else
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="row">
+                                Please add Books to this list!
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

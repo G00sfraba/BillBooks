@@ -1,3 +1,9 @@
+@if(!$authors->isEmpty())
+
+<DIV> Please add authors first</DIV>
+
+@else
+
 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
     <label for="title" class="col-md-4 col-xs-12 col-sm-4 control-label">Book title:</label>
 
