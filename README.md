@@ -5,7 +5,7 @@ You can Live test the project here
 
 # Instalation
 
-The laravel way:
+##The laravel way:
 1) Install composer here is how: 
 
 ```
@@ -33,7 +33,7 @@ DB_DATABASE=bill_books
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-
+If there is no .env file after the instalation - just create it by omitting the name(.env)
 
 4) now migrate the database setup with php artisan
 ```
@@ -41,3 +41,4 @@ php artisan migrate
 ```
 
 That's it - you can enjoy the project.
+
