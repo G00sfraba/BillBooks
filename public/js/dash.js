@@ -17,10 +17,10 @@ $(document).ready(function () {
         getModal("author", "delete-dialog/" + $(this).attr('author'), initAuthorDialog);
     });
     $(".btn-edit-book").click(function () {
-        getModal("book", "edit-dialog/" + $(this).attr('book'), initAuthorDialog);
+        getModal("book", "edit-dialog/" + $(this).attr('book'), initBookDialog);
     });
     $(".btn-delete-book").click(function () {
-        getModal("book", "delete-dialog/" + $(this).attr('book'), initAuthorDialog);
+        getModal("book", "delete-dialog/" + $(this).attr('book'), initBookDialog);
     });
     $('[data-toggle="popover"]').popover();
 
@@ -147,6 +147,22 @@ function initAuthorDialog(resposne) {
 function submitAuthorSuccess(response) {
     if (response.status == 0) {
         initAuthorDialog();
+    } else {
+        location.reload();
+    }
+}
+
+function initBookDialog(resposne) {
+    setTimeout(function () {
+        $('#btn-submit').click(function () {
+            submitModalForm('book-modal-form', submitBookSuccess, submitModalError);
+        });
+    }, 500);
+}
+
+function submitBookSuccess(response) {
+    if (response.status == 0) {
+        initBookDialog();
     } else {
         location.reload();
     }
