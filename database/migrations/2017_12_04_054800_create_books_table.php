@@ -25,7 +25,7 @@ class CreateBooksTable extends Migration {
 
         Schema::table('books', function($table) {
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
         });
     }
 
