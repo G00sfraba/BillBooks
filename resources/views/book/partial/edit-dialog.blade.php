@@ -1,7 +1,7 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-    <h1>Edit {{$book->name}}</h1>
+    <h1>Edit {{$book->title}}</h1>
 </div>
 <div class="modal-body">
     <div class="">

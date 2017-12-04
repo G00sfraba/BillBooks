@@ -30,23 +30,28 @@ function submitModalForm(formId, successCallBack, errorCallBack) {
     var form = $('#' + formId);
     form.on('submit', function (e) {
         e.preventDefault();
-        var formData = $(this).serialize();
+        var formData = new FormData(this);
         var formAction = form.attr('action');
-
-        $.post(formAction, formData)
-                .done(function (response) {
-                    var parsedResponse = JSON.parse(response);
-                    submitModalSuccess(parsedResponse);
-                    if (typeof successCallBack !== 'undefined') {
-                        if (jQuery.isFunction(successCallBack)) {
-                            successCallBack(parsedResponse);
-                        }
+        $.ajax({
+            type: 'POST',
+            url: formAction,
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                var parsedResponse = JSON.parse(response);
+                submitModalSuccess(parsedResponse);
+                if (typeof successCallBack !== 'undefined') {
+                    if (jQuery.isFunction(successCallBack)) {
+                        successCallBack(parsedResponse);
                     }
-                })
-                .fail(function (xhr, status, error) {
-                    errorCallBack(xhr, status, error);
-
-                });
+                }
+            },
+            error: function (xhr, status, error) {
+                errorCallBack(xhr, status, error);
+            }
+        });
     });
     form.submit();
     setModalContent(modalLoading);

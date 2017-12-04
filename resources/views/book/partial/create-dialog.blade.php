@@ -18,7 +18,7 @@
         </div>
 
         @else
-        <form id="book-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/book/add-book">
+        <form id="book-modal-form" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="/ajax/book/add-book">
             {{ csrf_field() }}
 
             @include('book.partial.fields')

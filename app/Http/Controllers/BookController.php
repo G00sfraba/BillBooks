@@ -52,6 +52,7 @@ class BookController extends Controller {
                     ->render();
         } else {
             $book = new Book(Input::all());
+
             if (Input::hasFile('cover')) {
                 $file = Input::file('cover');
 
