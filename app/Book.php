@@ -15,7 +15,7 @@ class Book extends Model {
         'title' => 'required',
         'author_id' => 'required',
         'purchased' => 'required|integer',
-        'cover' => 'required',
+        'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     );
     private $errors;
 
