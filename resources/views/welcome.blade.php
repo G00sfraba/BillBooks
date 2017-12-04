@@ -83,7 +83,7 @@
                     <div class="links">
                         <a href="https://github.com/G00sfraba/BillBooks">find it at GitHub</a>
                     </div>
-                    <h5>A Laravel based application</h5>
+                    <h7>A Laravel based application</h7>
                 </div>
 
                 <div class="links">
