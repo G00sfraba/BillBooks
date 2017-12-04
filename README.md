@@ -1,9 +1,12 @@
 # BillBooks
-Simple Book Catalogue using Laravel.
+Simple Book Catalogue using Laravel. 
 
 
 # Instalation
-
+You can check an online version of the project here: 
+```
+http://billbooks.robocipe.com/
+```
 ## The laravel way:
 ### 1) Install composer here is how: 
 
