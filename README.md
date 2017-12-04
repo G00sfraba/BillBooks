@@ -16,7 +16,7 @@ https://getcomposer.org/doc/00-intro.md
 composer install
 ```
 
-3)Now setup your MySQL database in the .env file
+3) Now setup your MySQL database in the .env file
 ```
 APP_NAME="Bill's Books"
 APP_ENV=local
