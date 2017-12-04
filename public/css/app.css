@@ -12,6 +12,13 @@
 .popover {
     min-width: 140px;   
 }
+.widget{
+    min-height: 100px !important;
+    border: 1px solid antiquewhite;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
 .widget-btns{
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;

@@ -15,30 +15,6 @@ class BookController extends Controller {
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index() {
-//
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-//
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request) {
         $result['status'] = 0;
         $validator = Validator::make(Input::all(), Book::$rules);
@@ -70,33 +46,6 @@ class BookController extends Controller {
         print json_encode($result);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book) {
-//
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Book $book) {
-//
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id) {
         $book = Book::findOrFail($id);
         $viewData = $this->_buildViewData();
@@ -134,12 +83,6 @@ class BookController extends Controller {
         print json_encode($result);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id) {
         Book::destroy($id);
 
@@ -167,10 +110,14 @@ class BookController extends Controller {
         }
     }
 
+    public function searchByTitle() {
+        $input = Input::all();
+        return view('book.dash-list', ['books' => Book::searchByTitle($input['search'])]);
+    }
+
     private function _buildViewData() {
         $viewData = null;
         $viewData['authors'] = Author::getAuthors();
-
         return $viewData;
     }
 

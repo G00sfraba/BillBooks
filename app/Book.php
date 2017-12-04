@@ -33,12 +33,20 @@ class Book extends Model {
     public static function getBooks() {
         return Book::select('author_id', 'user_id', 'title', 'purchased', 'cover', 'notes', 'id')
                         ->where('user_id', Auth::user()->id)
+                        ->orderBy('purchased', 'desc')
+                        ->get();
+    }
+
+    public static function searchByTitle($title) {
+        return Book::where('title', 'LIKE', '%' . $title . '%')
+                        ->orderBy('purchased', 'desc')
                         ->get();
     }
 
     public static function getBooksByAuthor($authorId) {
         return Book::select('author_id', 'user_id', 'title', 'purchased', 'cover', 'notes', 'id')
                         ->where('author_id', $authorId)
+                        ->orderBy('purchased', 'desc')
                         ->get();
     }
 

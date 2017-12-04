@@ -1,13 +1,5 @@
 <div class="col-md-12 text-center widget">
     <h3>{{$author->name}}</h3>
-
-    <div class="notes" 
-         title="Notes" 
-         data-toggle="popover" 
-         data-placement="top" 
-         data-trigger="hover" 
-         data-content="{{$author->notes}}">{{$author->notes}}</div>    
-
     <div class="widget-btns">
         <a href="/author/{{$author->id}}/" class="btn-author-books">
             <i class="fa fa-book" 
@@ -37,4 +29,11 @@
         </a>
         <div class="clearfix"></div>
     </div>
+    <div class="notes" 
+         title="Notes" 
+         data-toggle="popover" 
+         data-placement="top" 
+         data-trigger="hover" 
+         data-content="{{$author->notes}}">{{$author->notes}}</div>    
+
 </div>
