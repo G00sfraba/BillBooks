@@ -32,7 +32,7 @@ DB_DATABASE=bill_books
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-If there is no .env file after the instalation - just create it by omitting the name(.env)
+If there is no .env file after the instalation - just create it by omitting the name(.env). Or use the existing .env.example file
 
 4) now migrate the database setup with php artisan
 ```
