@@ -2,7 +2,7 @@
 Simple Book Catalogue using Laravel
 
 
-#Instalation
+# Instalation
 
 The laravel way:
 1) Install composer here is how: 
