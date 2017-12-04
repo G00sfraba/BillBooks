@@ -10,13 +10,13 @@
 
     <div class="widget-btns">
         <a href="/author/{{$author->id}}/" class="btn-author-books">
-            {{App\Book::authorBooksCount($author->id)}} <i class="fa fa-book" 
-                                                     aria-hidden="true" 
-                                                     title="Books" 
-                                                     data-toggle="popover" 
-                                                     data-placement="top" 
-                                                     data-trigger="hover" 
-                                                     data-content="Open your books collection from {{$author->name}}"></i>
+            <i class="fa fa-book" 
+               aria-hidden="true" 
+               title="Books" 
+               data-toggle="popover" 
+               data-placement="top" 
+               data-trigger="hover" 
+               data-content="Open your books collection from {{$author->name}}"> {{App\Book::authorBooksCount($author->id)}}</i>
         </a>
         <a class="btn-edit-author" author='{{$author->id}}' data-toggle="modal" data-target="#primaryModal">
             <i class="fa fa-pencil"  

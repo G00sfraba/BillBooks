@@ -1,7 +1,6 @@
 <div class="col-md-12 text-center widget">
     <h3>{{$book->title}}</h3>
-    <div>{{$book->author_id}}</div>
-    <div>Purchased: {{$book->purchased}}</div>
+    <div>{{App\Author::getAuthorName($book->author_id)}}</div>    
     <img src="{{URL::asset('/covers/'.$book->cover)}}" class="book-cover">
     <div class="notes" 
          title="Notes" 
@@ -28,6 +27,17 @@
                data-trigger="hover" 
                data-content="Delete this book {{$book->title}}"></i>
         </a>
+
+        <a class="btn-delete-book" book='{{$book->id}}'>
+            <i class="fa fa-calendar"  
+               aria-hidden="true" 
+               title="Year" 
+               data-toggle="popover" 
+               data-placement="top" 
+               data-trigger="hover" 
+               data-content="Year of purchase {{$book->purchased}}"> {{$book->purchased}}</i>
+        </a>
+
         <div class="clearfix"></div>
     </div>
 </div>

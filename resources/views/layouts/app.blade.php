@@ -78,6 +78,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">
+                                <a href="/home/" class="btn btn-default">Catalogue</a>
                                 <a class="btn btn-default btn-new-author" data-toggle="modal" data-target="#primaryModal">Add Author</a>
                                 <a class="btn btn-default btn-new-book" data-toggle="modal" data-target="#primaryModal">Add Book</a>
                             </div>

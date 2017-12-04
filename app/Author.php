@@ -33,4 +33,9 @@ class Author extends Model {
                         ->get();
     }
 
+    public static function getAuthorName($id) {
+        $result = Author::findOrFail($id);        
+        return $result->name;
+    }
+
 }

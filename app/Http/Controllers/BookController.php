@@ -97,17 +97,18 @@ class BookController extends Controller {
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update($id) {
+    public function update(Request $request, $id) {
         $book = Book::findOrFail($id);
-
+        $viewData = $this->_buildViewData();
         $result['status'] = 0;
         $validator = Validator::make(Input::all(), Book::$rules);
 
         if ($validator->fails()) {
             Input::flashExcept('password');
-            $result['view'] = View('author.partial.edit-dialog')
+            $result['view'] = View('book.partial.edit-dialog')
                     ->withErrors($validator)
-                    ->with('author', $book)
+                    ->with('book', $book)
+                    ->with('authors', $viewData['authors'])
                     ->withInput(Input::except('password'))
                     ->render();
         } else {
