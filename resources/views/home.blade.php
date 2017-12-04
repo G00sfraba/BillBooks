@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <a class="btn btn-default btn-new-author" data-toggle="modal" data-target="#primaryModal">Add Author</a>
@@ -19,7 +19,7 @@
 
                     @if(!$authors->isEmpty())
                         @foreach ($authors as $key => $author)                            
-                            <div class="col-md-4 col-xs-12 col-sm-4">
+                            <div class="col-md-4 col-xs-12 col-sm-6">
                                 <div class="row">
                                     @include('author.partial.widget', $author)
                                 </div>
