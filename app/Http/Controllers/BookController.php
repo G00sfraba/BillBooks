@@ -147,14 +147,19 @@ class BookController extends Controller {
     }
 
     public function getModal($modal, $id = null, Request $request) {
-        $viewData = _buildViewData();
+        $viewData = $this->_buildViewData();
         $request->session()->forget('message');
 
         if (isset($id)) {
             $viewData['book'] = Book::findOrFail($id);
-            print json_encode(View('book.partial.' . $modal)->with('book', $viewData)->render());
+            print json_encode(View('book.partial.' . $modal)
+                                    ->with('book', $viewData['book'])
+                                    ->with('authors', $viewData['authors'])
+                                    ->render());
         } else {
-            print json_encode(View('book.partial.' . $modal)->render());
+            print json_encode(View('book.partial.' . $modal)
+                                    ->with('authors', $viewData['authors'])
+                                    ->render());
         }
     }
 

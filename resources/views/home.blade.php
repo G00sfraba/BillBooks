@@ -31,8 +31,10 @@
                                 Please add Authors to this list!
                             </div>
                         </div>
-                    @endif
-                    
+                    @endif      
+                </div>
+                <div class="panel-body">
+                                 
                     @if(!$books->isEmpty())
                         @foreach ($books as $key => $book)                            
                             <div class="col-md-4 col-xs-12 col-sm-6">
@@ -47,7 +49,7 @@
                                 Please add Books to this list!
                             </div>
                         </div>
-                    @endif
+                    @endif      
                 </div>
             </div>
         </div>

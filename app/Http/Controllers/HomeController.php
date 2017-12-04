@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Author;
+use App\Book;
 
 class HomeController extends Controller {
 
@@ -23,6 +24,7 @@ class HomeController extends Controller {
      */
     public function index() {
         $viewData['authors'] = Author::getAuthors();
+        $viewData['books'] = Book::getBooks();
         return view('home', $viewData);
     }
 

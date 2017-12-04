@@ -84,12 +84,15 @@ class AuthorController extends Controller {
 
     public function getModal($modal, $id = null, Request $request) {
         $request->session()->forget('message');
-        
+
         if (isset($id)) {
             $author = Author::findOrFail($id);
-            print json_encode(View('author.partial.' . $modal)->with('author', $author)->render());
+            print json_encode(View('author.partial.' . $modal)
+                                    ->with('author', $author)
+                                    ->render());
         } else {
-            print json_encode(View('author.partial.' . $modal)->render());
+            print json_encode(View('author.partial.' . $modal)
+                                    ->render());
         }
     }
 

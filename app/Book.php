@@ -31,13 +31,13 @@ class Book extends Model {
     }
 
     public static function getBooks() {
-        return Author::select('author_id', 'user_id', 'title', 'purchased', 'cover', 'notes', 'id')
+        return Book::select('author_id', 'user_id', 'title', 'purchased', 'cover', 'notes', 'id')
                         ->where('user_id', Auth::user()->id)
                         ->get();
     }
 
     public static function getBooksByAuthor($authorId) {
-        return Author::select('author_id', 'user_id', 'title', 'purchased', 'cover', 'notes', 'id')
+        return Book::select('author_id', 'user_id', 'title', 'purchased', 'cover', 'notes', 'id')
                         ->where('author_id', $authorId)
                         ->get();
     }

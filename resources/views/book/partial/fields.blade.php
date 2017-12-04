@@ -1,9 +1,3 @@
-@if(!$authors->isEmpty())
-
-<DIV> Please add authors first</DIV>
-
-@else
-
 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
     <label for="title" class="col-md-4 col-xs-12 col-sm-4 control-label">Book title:</label>
 
@@ -24,7 +18,7 @@
     <div class="col-md-8 col-sm-8 col-xs-12">
         <select id="author_id" name="author_id" value="{{ $book->author_id ?? old('author_id') }}" class="form-control">                       
             @foreach ($authors as $author)
-            <option value="{{$author->id}}" @if (old('author_id') == $author_id || (isset($book) && $book->author_id == $author->id)) selected="selected" @endif>{{$author->name}}</option>                       
+            <option value="{{$author->id}}" @if (old('author_id') == $author->id || (isset($book) && $book->author_id == $author->id)) selected="selected" @endif>{{$author->name}}</option>                       
             @endforeach                          
         </select>
 
@@ -54,7 +48,7 @@
     <label for="cover" class="col-md-4 col-xs-12 col-sm-4 control-label">Cover</label>
 
     <div class="col-md-8 col-sm-8 col-xs-12">
-        <input id="cover" type="file" class="form-control" name="cover" value="{{$book->cover ?? old('cover') }}" required >
+        <input id="cover" type="file" class="form-control" name="cover" required >
 
         @if ($errors->has('cover'))
         <span class="help-block">
@@ -77,3 +71,4 @@
         @endif
     </div>
 </div>
+

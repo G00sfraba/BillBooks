@@ -9,6 +9,15 @@
         @if (Session::has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
         @endif
+
+        @if($authors->isEmpty())
+
+        <DIV> Please add authors first</DIV>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>            
+        </div>
+
+        @else
         <form id="book-modal-form" class="form-horizontal" role="form" method="POST" action="/ajax/book/add-book">
             {{ csrf_field() }}
 
@@ -19,5 +28,6 @@
                 <button id="btn-submit" type="button" class="btn btn-success">Save</button>
             </div>
         </form>
+        @endif
     </div>
 </div>
