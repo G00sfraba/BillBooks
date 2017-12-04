@@ -10,7 +10,7 @@
                     @if(!$books->isEmpty())
                         @foreach ($books as $key => $book)                            
                             <div class="col-md-4 col-xs-12 col-sm-6">
-                                <div class="row">
+                                <div class="">
                                     @include('book.partial.widget', $book)
                                 </div>
                             </div>       

@@ -21,14 +21,14 @@
                     @if(!$authors->isEmpty())
                         @foreach ($authors as $key => $author)                            
                             <div class="col-md-4 col-xs-12 col-sm-6">
-                                <div class="row">
+                                <div class="">
                                     @include('author.partial.widget', $author)
                                 </div>
                             </div>       
                         @endforeach  
                     @else
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
+                            <div class="">
                                 Nope, you don't have any authors yet.
                             </div>
                         </div>
@@ -39,14 +39,14 @@
                     @if(!$books->isEmpty())
                         @foreach ($books as $key => $book)                            
                             <div class="col-md-4 col-xs-12 col-sm-6">
-                                <div class="row">
+                                <div class="">
                                     @include('book.partial.widget', $book)
                                 </div>
                             </div>       
                         @endforeach  
                     @else
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
+                            <div class="">
                                  Nope, you don't have any books yet.
                             </div>
                         </div>
