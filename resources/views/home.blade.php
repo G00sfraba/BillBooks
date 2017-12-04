@@ -16,7 +16,8 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
+                    
+                    <h4>Authors List</h4>
                     @if(!$authors->isEmpty())
                         @foreach ($authors as $key => $author)                            
                             <div class="col-md-4 col-xs-12 col-sm-6">
@@ -34,7 +35,7 @@
                     @endif      
                 </div>
                 <div class="panel-body">
-                                 
+                    <h4>Books List</h4>   
                     @if(!$books->isEmpty())
                         @foreach ($books as $key => $book)                            
                             <div class="col-md-4 col-xs-12 col-sm-6">
