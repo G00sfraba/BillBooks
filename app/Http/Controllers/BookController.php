@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class BookController extends Controller {
 
@@ -44,7 +46,7 @@ class BookController extends Controller {
         if ($validator->fails()) {
 
             Input::flashExcept('password');
-            $result['view'] = View('book.partial.create-dialog')
+            $result['view'] = View('book.partial.create-dialog', $this->_buildViewData())
                     ->withErrors($validator)
                     ->withInput(Input::except('password'))
                     ->render();
