@@ -11,12 +11,9 @@ class Author extends Model {
     protected $fillable = [
         'name', 'notes', 'user_id',
     ];
-
-       
     public static $rules = array(
         'name' => 'required',
     );
-    
     private $errors;
 
     public function __construct(array $attributes = array()) {
@@ -24,16 +21,16 @@ class Author extends Model {
 
         $this->user_id = Auth::user()->id;
     }
-    
-    public function hasAuthors(){        
-        return  Author::where('user_id',Auth::user()->id )
-                ->count();
+
+    public function hasAuthors() {
+        return Author::where('user_id', Auth::user()->id)
+                        ->count();
     }
-    
-    public static function getAuthors(){
-        return  Author::select('name', 'notes','id')
-                ->where('user_id', Auth::user()->id)
-                ->get();
+
+    public static function getAuthors() {
+        return Author::select('name', 'notes', 'id')
+                        ->where('user_id', Auth::user()->id)
+                        ->get();
     }
 
 }

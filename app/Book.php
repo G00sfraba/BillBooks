@@ -42,4 +42,9 @@ class Book extends Model {
                         ->get();
     }
 
+    public static function authorBooksCount($id) {
+        return Book::where('author_id', $id)
+                        ->count();
+    }
+
 }

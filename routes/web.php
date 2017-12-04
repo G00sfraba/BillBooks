@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/ajax/author/modal/{partial}/{id?}', 'AuthorController@getModal');
+Route::get('/author/{id}/', 'AuthorController@displayBooks');
 Route::post('/ajax/author/add-author', 'AuthorController@store');
 Route::post('/ajax/author/update-author/{id}', 'AuthorController@update');
 Route::post('/ajax/author/delete-author/{id}', 'AuthorController@destroy');

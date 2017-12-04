@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -94,6 +95,10 @@ class AuthorController extends Controller {
             print json_encode(View('author.partial.' . $modal)
                                     ->render());
         }
+    }
+
+    public function displayBooks($author_id) {
+        return view('book.dash-list', ['books' => Book::getBooksByAuthor($author_id)]);
     }
 
 }

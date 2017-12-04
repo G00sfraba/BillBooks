@@ -1,6 +1,6 @@
 <div class="col-md-12 text-center widget">
     <h3>{{$author->name}}</h3>
-    
+
     <div class="notes" 
          title="Notes" 
          data-toggle="popover" 
@@ -9,14 +9,14 @@
          data-content="{{$author->notes}}">{{$author->notes}}</div>    
 
     <div class="widget-btns">
-        <a class="btn-author-books" author='{{$author->id}}' data-toggle="modal" data-target="#primaryModal">
-            <i class="fa fa-book" 
-               aria-hidden="true" 
-               title="Books" 
-               data-toggle="popover" 
-               data-placement="top" 
-               data-trigger="hover" 
-               data-content="Open your books collection from {{$author->name}}"></i>
+        <a href="/author/{{$author->id}}/" class="btn-author-books">
+            {{App\Book::authorBooksCount($author->id)}} <i class="fa fa-book" 
+                                                     aria-hidden="true" 
+                                                     title="Books" 
+                                                     data-toggle="popover" 
+                                                     data-placement="top" 
+                                                     data-trigger="hover" 
+                                                     data-content="Open your books collection from {{$author->name}}"></i>
         </a>
         <a class="btn-edit-author" author='{{$author->id}}' data-toggle="modal" data-target="#primaryModal">
             <i class="fa fa-pencil"  
