@@ -1,6 +1,5 @@
 # BillBooks
-Simple Book Catalogue using Laravel
-You can Live test the project here
+Simple Book Catalogue using Laravel.
 
 
 # Instalation
